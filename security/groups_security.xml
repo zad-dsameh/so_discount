@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <record id="group_discount_admin" model="res.groups">
+            <field name="name">Discount Admin</field>
+        </record>
+    </data>
+</odoo>

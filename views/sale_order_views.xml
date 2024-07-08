@@ -1,0 +1,30 @@
+<odoo>
+    <record id="view_order_form_discount" model="ir.ui.view">
+        <field name="name">sale.order.form.discount</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook//page[@name='order_lines']//field[@name='note']" position="before">
+                <field name="discount_type" groups="so_discount.group_discount_admin"/>
+                <field name="discount_rate" groups="so_discount.group_discount_admin"/>
+            </xpath>
+            <xpath expr="//notebook/page[@name='order_lines']/group[@name='note_group']/group/field[@name='tax_totals_json']"
+                   position="before">
+                <field name="untaxed_amount_before_discount"/>
+                <field name="discount_amount"/>
+                <field name="untaxed_amount_after_discount"/>
+                <field name="amount_total"/>
+            </xpath>
+
+            <xpath expr="//field[@name='tax_totals_json']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//notebook/page[@name='order_lines']/group[@name='note_group']/group/field[@name='tax_totals_json']"
+                   position="after">
+                <field name="amount_due"/>
+            </xpath>
+        </field>
+
+    </record>
+</odoo>
