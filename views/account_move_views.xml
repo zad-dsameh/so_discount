@@ -17,10 +17,19 @@
             </xpath>
 
             <xpath expr="//field[@name='tax_totals_json']" position="before">
-                <field name="untaxed_amount_before_discount"/>
-                <field name="discount_amount"/>
-                <field name="untaxed_amount_after_discount"/>
-                <field name="amount_total"/>
+                <field name="untaxed_amount_before_discount" widget='monetary'
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="discount_amount" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <field name="untaxed_amount_after_discount" widget='monetary'
+                       options="{'currency_field': 'currency_id'}"/>
+                <field name="amount_tax" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                    <label for="amount_total"/>
+                </div>
+                <field name="amount_total" nolabel="1"
+                       class="oe_subtotal_footer_separator"
+                       widget='monetary'
+                       options="{'currency_field': 'currency_id'}"/>
             </xpath>
 
             <xpath expr="//field[@name='tax_totals_json']" position="after">
